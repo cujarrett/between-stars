@@ -1,31 +1,31 @@
-<p align="center"><img src="images/icon.png" width="160" alt="Between Stars icon"></p>
+<p align="center"><img src="images/icon.png" width="120" alt="Between Stars icon"></p>
 
 <h1 align="center">Between Stars</h1>
 
-A dark VS Code theme. The background is purple-black and the accent is green.
+<p align="center">A dark VS Code theme. Purple-black space with a green glow.</p>
 
 ![Between Stars in VS Code](images/screenshot.png)
 
 ## Install
 
-Search for **Between Stars** in the Extensions view, or run:
-
 ```sh
 code --install-extension cujarrett.between-stars
 ```
 
-Then pick it with **Preferences: Color Theme**.
-
-For the prompt's icons in the built-in terminal, install the font and set it:
-
-```sh
-brew install --cask font-jetbrains-mono-nerd-font
-```
-
-```json
-"terminal.integrated.fontFamily": "JetBrainsMono Nerd Font"
-```
+Then run **Preferences: Color Theme** and pick **Between Stars**.
 
 ## Credits
 
 Syntax colors come from [Dracula Purple](https://github.com/cbasdev/dracula-purple-theme) by cbasdev (MIT).
+
+<details>
+<summary>Publishing</summary>
+
+CI publishes to the Marketplace on every push to `main`. A release is a version bump in `package.json` plus a `CHANGELOG.md` entry.
+
+CI needs a `VSCE_PAT` repo secret.
+
+1. Create an Azure DevOps token with the scope **Marketplace → Manage**. See [Get a Personal Access Token](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token).
+2. Save it: `gh secret set VSCE_PAT -R cujarrett/between-stars`
+
+</details>

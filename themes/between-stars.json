@@ -102,7 +102,7 @@
     "gitDecoration.modifiedResourceForeground": "#8be9fd",
     "gitDecoration.untrackedResourceForeground": "#50fa7b",
     "input.background": "#1a1029",
-    "input.border": "#0d0815",
+    "input.border": "#2a1440",
     "input.foreground": "#f8f8f2",
     "input.placeholderForeground": "#6272a4",
     "inputOption.activeBorder": "#bd93f9",
@@ -143,6 +143,7 @@
     "pickerGroup.border": "#bd93f9",
     "pickerGroup.foreground": "#8be9fd",
     "progressBar.background": "#ff79c6",
+    "quickInput.background": "#1a1029",
     "selection.background": "#bd93f9",
     "settings.checkboxBackground": "#170e26",
     "settings.checkboxBorder": "#0d0815",
@@ -205,7 +206,9 @@
     "titleBar.activeForeground": "#f8f8f2",
     "titleBar.inactiveBackground": "#0d0815",
     "titleBar.inactiveForeground": "#6272a4",
-    "walkThrough.embeddedEditorBackground": "#170e26"
+    "walkThrough.embeddedEditorBackground": "#170e26",
+    "widget.border": "#a58bd655",
+    "widget.shadow": "#000000aa"
   },
   "tokenColors": [
     {
