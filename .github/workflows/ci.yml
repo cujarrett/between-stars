@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  package:
+    name: package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Validate JSON
+        run: |
+          python3 -m json.tool themes/between-stars.json > /dev/null
+          python3 -m json.tool package.json > /dev/null
+
+      - name: Package
+        run: npx --yes @vscode/vsce package
+
+  publish:
+    name: publish
+    needs: package
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      # --skip-duplicate exits cleanly when this version is already live,
+      # so only a version bump in package.json ships.
+      - name: Publish
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: npx --yes @vscode/vsce publish --skip-duplicate

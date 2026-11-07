@@ -1,0 +1,7 @@
+.github/**
+.gitignore
+AGENTS.md
+justfile
+renovate.json
+*.vsix
+demo/**
