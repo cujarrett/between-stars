@@ -23,9 +23,25 @@ Syntax colors come from [Dracula Purple](https://github.com/cbasdev/dracula-purp
 
 CI publishes to the Marketplace on every push to `main`. A release is a version bump in `package.json` plus a `CHANGELOG.md` entry.
 
-CI needs a `VSCE_PAT` repo secret.
+CI needs a `VSCE_PAT` repo secret. To make one:
 
-1. Create an Azure DevOps token with the scope **Marketplace → Manage**. See [Get a Personal Access Token](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token).
-2. Save it: `gh secret set VSCE_PAT -R cujarrett/between-stars`
+1. Open [dev.azure.com/cujarrett/_usersSettings/tokens](https://dev.azure.com/cujarrett/_usersSettings/tokens), signed in as the owner of the `cujarrett` publisher.
+2. Click **+ New Token** and fill it in.
+   - Name: `between-stars publish`
+   - Organization: **All accessible organizations**
+   - Expiration: the longest it allows
+   - Scopes: click **Show all scopes**, then tick **Marketplace → Manage**
+3. Click **Create** and copy the token. Azure shows it only once.
+4. Check it works. Paste the token when asked. Success prints `The Personal Access Token verification succeeded for the publisher 'cujarrett'.`
+
+   ```sh
+   npx @vscode/vsce verify-pat cujarrett
+   ```
+
+5. Save it as the repo secret. Paste the token when asked.
+
+   ```sh
+   gh secret set VSCE_PAT -R cujarrett/between-stars
+   ```
 
 </details>
