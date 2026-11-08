@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Icon matches the Dusk background.
+
 ## 0.2.0
 
 - Background is less purple, with a hint of blue.
